@@ -1,0 +1,85 @@
+
+1. Navigate to https://www.hyrtutorials.com/ and mouse hover to "Tutorials" menu and click "Dot Net" submenu
+
+package seleniumpractice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class ActionsAssignment {
+
+    public static void main(String[] args) throws InterruptedException {
+
+        String url = "https://www.hyrtutorials.com/";
+        String tutorialLocator = "//a[@href='https://www.hyrtutorials.com/search/label/Tutorials']";
+        String courseLocator = "//a[@href='https://www.hyrtutorials.com/search/label/.NET']";
+
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get(url);
+
+        WebElement tutorialMenu = driver.findElement(By.xpath(tutorialLocator));
+        WebElement dotNetCourse = driver.findElement(By.xpath(courseLocator));
+
+        Actions mouseActions = new Actions(driver);
+        mouseActions.moveToElement(tutorialMenu).perform(); // Hover on "Tutorials"
+        mouseActions.moveToElement(dotNetCourse).click().perform(); // Hover and click ".NET"
+        System.out.println(tutorialMenu);
+        System.out.println(dotNetCourse);
+    }
+
+}
+
+Output:
+[[ChromeDriver: chrome on windows (da7aaf56fd339f60d3fe2163f3df843f)] -> xpath: //a[@href='https://www.hyrtutorials.com/search/label/Tutorials']]
+[[ChromeDriver: chrome on windows (da7aaf56fd339f60d3fe2163f3df843f)] -> xpath: //a[@href='https://www.hyrtutorials.com/search/label/.NET']]
+
+
+2. Navigate to https://www.saucedemo.com/, copy "standard_user" from "Accepted usernames are:" and paste it into Username text field, same way copy and paste the password in Password field and click Login.
+
+package seleniumpractice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class ActionsAssignment {
+
+    public static void main(String[] args) throws InterruptedException {
+
+        String url = "https://www.saucedemo.com/";
+        String userName = "user-name";
+        String password = "password";
+        String loginButton = "login-button";
+        String credentials = "login_credentials";
+        String passcredentials ="//div[@class='login_password']";
+        WebElement Username,Password,Login,LoginCredentials,PasswordCredentials;
+
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get(url);
+        Username =driver.findElement(By.id(userName));
+        Password =driver.findElement(By.id(password));
+        Login = driver.findElement(By.id(loginButton));
+        LoginCredentials=driver.findElement(By.id(credentials));
+        PasswordCredentials =driver.findElement(By.xpath(passcredentials));
+        
+        
+        Actions mouseActions = new Actions(driver);
+        mouseActions.moveToElement(LoginCredentials).doubleClick().keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).perform();
+        mouseActions.moveToElement(Username).click().keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
+        mouseActions.moveToElement(PasswordCredentials).click().keyDown(Keys.CONTROL).sendKeys("").keyUp(Keys.CONTROL).perform();
+        mouseActions.moveToElement(Password).click().keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
+        mouseActions.moveToElement(Login).click().perform();
+        
+        
+    }
+
+}
+
