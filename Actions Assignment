@@ -27,15 +27,11 @@ public class ActionsAssignment {
         Actions mouseActions = new Actions(driver);
         mouseActions.moveToElement(tutorialMenu).perform(); // Hover on "Tutorials"
         mouseActions.moveToElement(dotNetCourse).click().perform(); // Hover and click ".NET"
-        System.out.println(tutorialMenu);
-        System.out.println(dotNetCourse);
+        
     }
 
 }
 
-Output:
-[[ChromeDriver: chrome on windows (da7aaf56fd339f60d3fe2163f3df843f)] -> xpath: //a[@href='https://www.hyrtutorials.com/search/label/Tutorials']]
-[[ChromeDriver: chrome on windows (da7aaf56fd339f60d3fe2163f3df843f)] -> xpath: //a[@href='https://www.hyrtutorials.com/search/label/.NET']]
 
 
 2. Navigate to https://www.saucedemo.com/, copy "standard_user" from "Accepted usernames are:" and paste it into Username text field, same way copy and paste the password in Password field and click Login.
