@@ -53,8 +53,8 @@ public class ActionsAssignment {
         String userName = "user-name";
         String password = "password";
         String loginButton = "login-button";
-        String credentials = "login_credentials";
-        String passcredentials ="//div[@class='login_password']";
+        String credentials = "//div[@id='login_credentials']";
+        String passcredentials = "//div[@class='login_password']";
         WebElement Username,Password,Login,LoginCredentials,PasswordCredentials;
 
         WebDriver driver = new ChromeDriver();
@@ -63,14 +63,14 @@ public class ActionsAssignment {
         Username =driver.findElement(By.id(userName));
         Password =driver.findElement(By.id(password));
         Login = driver.findElement(By.id(loginButton));
-        LoginCredentials=driver.findElement(By.id(credentials));
+        LoginCredentials=driver.findElement(By.xpath(credentials));
         PasswordCredentials =driver.findElement(By.xpath(passcredentials));
         
         
         Actions mouseActions = new Actions(driver);
-        mouseActions.moveToElement(LoginCredentials).doubleClick().keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).perform();
+        mouseActions.moveToElement(LoginCredentials).moveByOffset(0, 60).doubleClick().keyDown(Keys.CONTROL).sendKeys("c").perform();
         mouseActions.moveToElement(Username).click().keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
-        mouseActions.moveToElement(PasswordCredentials).click().keyDown(Keys.CONTROL).sendKeys("").keyUp(Keys.CONTROL).perform();
+        mouseActions.moveToElement(PasswordCredentials).moveByOffset(0,60).doubleClick().keyDown(Keys.CONTROL).sendKeys("c").perform();
         mouseActions.moveToElement(Password).click().keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
         mouseActions.moveToElement(Login).click().perform();
         
@@ -78,4 +78,3 @@ public class ActionsAssignment {
     }
 
 }
-
