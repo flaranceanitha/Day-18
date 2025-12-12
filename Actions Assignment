@@ -68,9 +68,9 @@ public class ActionsAssignment {
         
         
         Actions mouseActions = new Actions(driver);
-        mouseActions.moveToElement(LoginCredentials).moveByOffset(0, 60).doubleClick().keyDown(Keys.CONTROL).sendKeys("c").perform();
+        mouseActions.moveToElement(LoginCredentials).moveByOffset(0, 300).doubleClick().keyDown(Keys.CONTROL).sendKeys("c").perform();
         mouseActions.moveToElement(Username).click().keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
-        mouseActions.moveToElement(PasswordCredentials).moveByOffset(0,60).doubleClick().keyDown(Keys.CONTROL).sendKeys("c").perform();
+        mouseActions.moveToElement(PasswordCredentials).moveByOffset(0,300).doubleClick().keyDown(Keys.CONTROL).sendKeys("c").perform();
         mouseActions.moveToElement(Password).click().keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
         mouseActions.moveToElement(Login).click().perform();
         
